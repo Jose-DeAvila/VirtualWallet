@@ -1,0 +1,209 @@
+:root {
+  --height: 10%;
+}
+
+.home {
+  width: 100%;
+  height: 100vh;
+}
+
+.home header {
+  width: 100%;
+  height: 70px;
+  background-color: rgb(104, 104, 250);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home header .logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+}
+
+.home .menu {
+  width: 20%;
+  height: 58.9vh;
+  background-color: rgb(104, 104, 250);
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.home .menu a {
+  color: rgb(5, 5, 199);
+  font-weight: bold;
+}
+
+.home header .logo img {
+  width: 150px;
+  margin-left: 50px;
+}
+
+
+.home header .userInfo {
+  margin-right: 10px;
+  width: 100%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.home header .userInfo a {
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(5, 5, 199);
+}
+
+.home main {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 50px 0 0;
+}
+
+.home main .balance {
+  width: 20%;
+  text-align: center;
+}
+
+.home main .latest {
+  width: 100%;
+  text-align: center;
+}
+
+.home main .reload,
+.home main .pay,
+.home main .check {
+  width: 100%;
+  text-align: center;
+}
+
+.home main .balance .btn-addFunds {
+  color: black;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.5s ease all;
+}
+
+.home main .balance .btn-addFunds:hover {
+  background-color: black;
+  color: white;
+}
+
+.reload form,
+.pay form,
+.check form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reload form .form--document,
+.reload form .form--cellphone,
+.reload form .form--value,
+.pay form .form--value,
+.check form .form--document,
+.check form .form--cellphone {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 20px;
+  text-align: center;
+}
+
+.reload form label,
+.pay form label,
+.check form label {
+  font-size: 1.3rem;
+}
+
+.reload form .form--document input,
+.reload form .form--cellphone input,
+.reload form .form--value input,
+.pay form .form--value input,
+.check form .form--document input,
+.check form .form--cellphone input {
+  font-size: 1rem;
+  padding: 10px;
+  width: 100%;
+}
+
+.reload form input:focus,
+.pay form input:focus,
+.check form input:focus {
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  padding: 10px 40px;
+  color: black;
+  transition: 0.3s ease all;
+}
+
+.btn-primary:hover {
+  background-color: rgb(5, 5, 199);
+  color: white;
+}
+.home .logo .btn-menu {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .home .menu {
+    width: 100%;
+    position: absolute;
+    transform: translateX(100%);
+    transition: .3s ease all;
+    display: none;
+  }
+  .home header .userInfo{
+      width: 50%;
+      margin-left: 20px;
+  }
+  .home main {
+      margin: 0;
+  }
+  .home .logo{
+      width: 30%;
+      margin-left: 20px;
+  }
+  .home .logo .img {
+      width: 60%;
+  }
+  .home .logo .btn-menu {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+  }
+  .change .bar2 {
+    opacity: 0;
+  }
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+  }
+  .home main .menu.change{
+    display: flex;
+    transform: translateX(0px);
+  }
+}

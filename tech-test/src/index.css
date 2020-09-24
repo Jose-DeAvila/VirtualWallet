@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.App {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  background-color: white;
+}
+
+.container{
+  width: 60%;
+  height: 70vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(104, 104, 250);
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px black;
+}
+
+.container .img{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.container img{ 
+  width: 150%;
+  height: 100%;
+  max-width: 600px;
+  position: absolute;
+  left: 0;
+}
+
+.container .login{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login form .form--email, .login form .form--password{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.login form .form--email input, .login form .form--password input{
+  font-size: 1.3rem;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  border:none;
+  width: 80%;
+  margin: auto;
+}
+
+.btn-primary{
+  font-size: 1.6rem;
+  background-color: transparent;
+  border: none;
+  border: 2px solid rgb(66, 66, 248);
+  cursor: pointer;
+  margin: 15px;
+  border-radius: 10px;
+  padding: 0 50px;
+}
+
+.signup{
+  line-height: 0;
+}
+
+.container .register{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.register form .form--email, .register form .form--password, .register form .form--name, .register form .form--document{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.register form .form--email input, .register form .form--password input, .register form .form--name input, .register form .form--document input{
+  font-size: 1.3rem;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  border:none;
+  margin: auto;
+  width: 80%;
+}
+
+.back-icon {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .container .img, .container .img img {
+    display: none;
+  }
+}
