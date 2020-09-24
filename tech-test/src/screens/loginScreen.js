@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { signin } from "../actions/userActions";
 import wallet from "../img/wallet.jpg";
 
 function SigninScreen(props){
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const userSignin = useSelector(state => state.userSignin);
+  const { loading, userInfo, error } = userSignin;
   const dispatch = useDispatch();
   useEffect(() => {
+    if (userInfo) {
+      props.history.push("/home");
+    }
     return () => {
       //
     };
-  }, []);
+  }, [userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(signin(email, password));
   }
 
     return (
@@ -25,6 +32,10 @@ function SigninScreen(props){
         </div>
         <div className="login">
           <h1>Sign-In</h1>
+          <div>
+            {loading && <div>Loading...</div>}
+            {error && <div> {error} </div>}
+          </div>
           <form onSubmit={submitHandler}>
             <div className="form--email">
               <label htmlFor="email">Email</label>

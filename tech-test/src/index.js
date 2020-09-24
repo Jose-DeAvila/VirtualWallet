@@ -7,8 +7,10 @@ import * as serviceWorker from './serviceWorker';
 import core from './core';
 
 ReactDOM.render(
-  <Provider core={core}>
-    <App />
+  <Provider store={core}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   </Provider>,
   document.getElementById('root')
 );

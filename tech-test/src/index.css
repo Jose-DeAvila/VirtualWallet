@@ -89,7 +89,7 @@
   position: relative;
 }
 
-.register form .form--email, .register form .form--password, .register form .form--name, .register form .form--document{
+.register form .form--email, .register form .form--phone, .register form .form--password, .register form .form--name, .register form .form--document{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -97,7 +97,7 @@
   padding: 5px;
 }
 
-.register form .form--email input, .register form .form--password input, .register form .form--name input, .register form .form--document input{
+.register form .form--email input, .register form .form--phone input, .register form .form--password input, .register form .form--name input, .register form .form--document input{
   font-size: 1.3rem;
   padding: 5px;
   border-radius: 5px;

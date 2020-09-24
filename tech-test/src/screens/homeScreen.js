@@ -5,12 +5,17 @@ import LatestScreen from '../screens/latestScreen';
 import reloadScreen from '../screens/reloadScreen';
 import payScreen from '../screens/payScreen';
 import checkScreen from "./checkScreen";
+import { useSelector } from "react-redux";
 
-function homeScreen(props){
+function HomeScreen(props){
     const myFunction = () => {
         document.querySelector(".btn-menu").classList.toggle("change");
         document.querySelector(".menu").classList.toggle("change");
     }
+
+    const userSignin = useSelector(state=>state.userSignin);
+    const userInfo = userSignin;
+
     return <div className="home">
         <script>
         </script>
@@ -24,7 +29,7 @@ function homeScreen(props){
                 <img src="/img/logo-ePayCo.png" alt="logo ePayCo"/>
             </div>
             <div className="userInfo">
-                <a href="">Name</a>
+                {userInfo?<div> {userInfo.name}</div>: <div>No name</div>}
             </div>
         </header>
         <main>
@@ -43,4 +48,4 @@ function homeScreen(props){
     </div>
 }
 
-export default homeScreen;
+export default HomeScreen;
