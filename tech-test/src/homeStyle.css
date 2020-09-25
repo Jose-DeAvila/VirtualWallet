@@ -57,6 +57,26 @@
   font-size: 1rem;
   font-weight: bold;
   color: rgb(5, 5, 199);
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.incorrect-data {
+  width: 50%;
+  color: red;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 20px auto;
+  padding: 20px 0;
+}
+
+.correct-data {
+  width: 50%;
+  color: green;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 20px auto;
+  padding: 20px 0;
 }
 
 .home main {
