@@ -82,7 +82,7 @@ function PayScreen(props) {
       {ok ? (
         <div className="correct-data">Everything is Good!</div>
       ) : (
-        <div className="incorrect-data">Eror in transfer</div>
+        <div className="incorrect-data">Error in transfer</div>
       )}
     </div>
   );
