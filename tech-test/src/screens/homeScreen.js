@@ -3,9 +3,10 @@ import { Route, Link } from "react-router-dom";
 import "../homeStyle.css";
 import reloadScreen from "../screens/reloadScreen";
 import payScreen from "../screens/payScreen";
-import checkScreen from "./checkScreen";
-import { useSelector } from "react-redux";
-import { session } from "passport";
+import CheckScreen from "./checkScreen";
+import { useDispatch, useSelector } from "react-redux";
+import Cookie from 'js-cookie';
+import { logout } from "../actions/userActions";
 
 let value = 0;
 let takeValue;
@@ -15,6 +16,12 @@ function HomeScreen(props) {
     document.querySelector(".btn-menu").classList.toggle("change");
     document.querySelector(".menu").classList.toggle("change");
   };
+  const dispatch = useDispatch();
+
+  const logoutHandler = () => {
+    dispatch(logout());
+    props.history.push("/");
+  }
   const userSignin = useSelector(state => state.userSignin);
   const {userInfo} = userSignin;
   useEffect(() => {
@@ -39,7 +46,7 @@ function HomeScreen(props) {
         </div>
         <div className="userInfo">
           {
-              userInfo && <Link to="/" className="data"> {userInfo.name} ~ {userInfo.document} ~ {userInfo.money} </Link>
+              userInfo && <Link to="/" className="data"> {userInfo.name} ~ {userInfo.document} </Link>
           }
         </div>
       </header>
@@ -54,13 +61,13 @@ function HomeScreen(props) {
           <Link to="/home/check" onClick={myFunction}>
             Check balance
           </Link>
-          <Link to="/" onClick={myFunction}>
+          <Link to="/" onClick={logoutHandler}>
             Log out
           </Link>
         </div>
         <Route path="/home/reload" component={reloadScreen} />
         <Route path="/home/pay" component={payScreen} />
-        <Route path="/home/check" component={checkScreen} />
+        <Route path="/home/check" component={CheckScreen} />
       </main>
     </div>
   );

@@ -13,3 +13,5 @@ export const USER_RELOAD_FAIL = 'USER_RELOAD_FAIL';
 export const USER_PAY_REQUEST = 'USER_PAY_REQUEST';
 export const USER_PAY_SUCCESS = 'USER_PAY_SUCCESS';
 export const USER_PAY_FAIL = 'USER_PAY_FAIL';
+
+export const USER_LOGOUT = 'USER_LOGOUT';

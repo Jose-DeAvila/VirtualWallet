@@ -1,5 +1,5 @@
 import Cookie from 'js-cookie';
-import { USER_REGISTER_REQUEST, USER_REGISTER_FAIL, USER_REGISTER_SUCCESS, USER_SIGNIN_FAIL, USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS } from '../constants/userConstants';
+import { USER_REGISTER_REQUEST, USER_REGISTER_FAIL, USER_REGISTER_SUCCESS, USER_SIGNIN_FAIL, USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS, USER_LOGOUT } from '../constants/userConstants';
 import {USER_RELOAD_REQUEST, USER_RELOAD_SUCCESS, USER_RELOAD_FAIL, USER_PAY_REQUEST, USER_PAY_SUCCESS, USER_PAY_FAIL} from '../constants/userConstants';
 import Axios from 'axios';
 
@@ -50,4 +50,9 @@ const pay = (document, value) => async (dispatch) => {
   }
 }
 
-export {signin, register, reloadBalance, pay};
+const logout = () => (dispatch) =>{
+  Cookie.remove("userInfo");
+  dispatch({type: USER_LOGOUT});
+}
+
+export {signin, register, reloadBalance, pay, logout};
