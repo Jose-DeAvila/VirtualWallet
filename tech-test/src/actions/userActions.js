@@ -1,6 +1,6 @@
 import Cookie from 'js-cookie';
 import { USER_REGISTER_REQUEST, USER_REGISTER_FAIL, USER_REGISTER_SUCCESS, USER_SIGNIN_FAIL, USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS } from '../constants/userConstants';
-import {USER_RELOAD_REQUEST, USER_RELOAD_SUCCESS, USER_RELOAD_FAIL} from '../constants/userConstants';
+import {USER_RELOAD_REQUEST, USER_RELOAD_SUCCESS, USER_RELOAD_FAIL, USER_PAY_REQUEST, USER_PAY_SUCCESS, USER_PAY_FAIL} from '../constants/userConstants';
 import Axios from 'axios';
 
 const signin = (email, password) => async (dispatch) => {
@@ -38,4 +38,16 @@ const reloadBalance = (document, phone, value) => async (dispatch) => {
   }
 }
 
-export {signin, register, reloadBalance};
+const pay = (document, value) => async (dispatch) => {
+  dispatch({type: USER_PAY_REQUEST, payload: {document, value}});
+  try{
+    const {data} = await Axios.post("/api/users/pay", {document, value});
+    dispatch({type: USER_PAY_SUCCESS, payload: data});
+    Cookie.set('userInfo', JSON.stringify(data));
+  }
+  catch(error){
+    dispatch({type: USER_PAY_FAIL, payload: error.message});
+  }
+}
+
+export {signin, register, reloadBalance, pay};

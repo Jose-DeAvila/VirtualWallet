@@ -97,4 +97,25 @@ router.post("/reload", async (req, res)=>{
     }
 });
 
+router.post("/pay", async (req, res)=>{
+    try{
+        const userPay = await User.findOne({document: req.body.document});
+        if(userPay){
+            res.send({
+                _id: userPay.id,
+                name: userPay.name,
+                email: userPay.email,
+                document: userPay.document,
+                phone: userPay.phone,
+                money: req.body.value,
+            })
+        }else{
+            res.status(401).send({msg: 'Not found'})
+        }
+    }
+    catch(error){
+        console.log(error.message);
+    }
+});
+
 export default router;

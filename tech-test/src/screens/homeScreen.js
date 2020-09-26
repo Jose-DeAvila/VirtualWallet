@@ -5,12 +5,12 @@ import reloadScreen from "../screens/reloadScreen";
 import payScreen from "../screens/payScreen";
 import checkScreen from "./checkScreen";
 import { useSelector } from "react-redux";
+import { session } from "passport";
 
 let value = 0;
 let takeValue;
 
 function HomeScreen(props) {
-  const money = props.location.search ? Number(props.location.search.split("=")[1]) : 0;
   const myFunction = () => {
     document.querySelector(".btn-menu").classList.toggle("change");
     document.querySelector(".menu").classList.toggle("change");
@@ -18,18 +18,13 @@ function HomeScreen(props) {
   const userSignin = useSelector(state => state.userSignin);
   const {userInfo} = userSignin;
   useEffect(() => {
-      //
+    if(!userInfo){
+      props.history.push("/");
+    }
     return () => {
       //
     };
   }, []);
-  takeValue = () => {
-    value = money;
-    console.log(value);
-    return value;
-  }
-
-  takeValue();
 
   return (
     <div className="home">
@@ -44,7 +39,7 @@ function HomeScreen(props) {
         </div>
         <div className="userInfo">
           {
-              userInfo && <Link to="/" className="data"> {userInfo.name} ~ {userInfo.document}</Link>
+              userInfo && <Link to="/" className="data"> {userInfo.name} ~ {userInfo.document} ~ {userInfo.money} </Link>
           }
         </div>
       </header>
@@ -71,4 +66,3 @@ function HomeScreen(props) {
   );
 }
 export default HomeScreen;
-export {takeValue};

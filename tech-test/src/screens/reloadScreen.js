@@ -21,6 +21,7 @@ function ReloadScreen(props) {
     if (reloaded) {
       restarform();
       setAux2(true);
+      setAux(true);
     }
     return () => {
       //
@@ -29,17 +30,12 @@ function ReloadScreen(props) {
   const reloadHandler = (e) => {
     e.preventDefault();
     if (document === userInfo.document && phone === userInfo.phone) {
-      setAux(true);
-      dispatch(
-        reloadBalance(
-          document,
-          phone,
-          parseInt(value) + parseInt(userInfo.money)
-        )
-      );
+      setAux(false);
+      dispatch(reloadBalance(document, phone, parseInt(value) + parseInt(userInfo.money)));
       setReloaded(true);
     } else {
       setAux(false);
+      setAux2(false);
     }
   };
 
